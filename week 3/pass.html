@@ -1,0 +1,34 @@
+<html>
+
+<head>
+	<script type="text/javascript">
+		function showInfo(u, b) {
+			var user = document.getElementById("a");
+			var pass = document.getElementById("b");
+			alert("username: " + u + "\n" +
+				"password: " + b
+			);
+		}
+	</script>
+</head>
+
+<body>
+	<form>
+		<p>Username:
+			<input type="text" id="a" name="username" />
+		</p>
+		<p>Password
+			<input type="password" id="b" name="password" />
+		</p>
+		<script type="text/javascript">
+			var user = document.getElementById("a");
+			var pass = document.getElementById("b");
+		</script>
+		<p>
+			<input type="button" id="submit" name="submit" value="Submit" onclick="showInfo(user.value,pass.value)" />
+			<input type="button" id="cancel" name="cancel" value="Cancel" />
+		</p>
+	</form>
+</body>
+
+</html>
