@@ -1,0 +1,43 @@
+
+class Jedi { 
+  say(){
+     console.log("Hello, OB1");
+  }
+  force(){
+     return (this.forceIsDark ? 'Join' :
+      'Fear is the path to' ) + ' the dark side';
+  }
+  constructor() {
+     this.forceIsDark = false; 
+  }
+}
+
+class Sith extends Jedi { 
+   say(){
+     console.log("Yes, Master");
+  }
+  constructor() {
+    super();
+    this.forceIsDark = true; 
+  }
+}
+
+//----Practice 1---------//
+
+let yoda = new Jedi();
+let darth = new Sith();
+yoda.say()
+darth.say()
+console.log(yoda.forceIsDark)
+console.log(darth.forceIsDark)
+
+console.log(yoda.force())
+console.log(darth.force())
+
+//---------Output--------/
+//"Hello, OB1"
+//"Yes, Master"
+//false
+//true  
+//"Fear is the path to the dark side"
+//"Join the dark side"//

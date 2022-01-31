@@ -1,0 +1,32 @@
+<html>
+<head>
+
+<script type="text/javascript">
+
+  var xmlhttp=new XMLHttpRequest();
+
+  //Add your code here
+  xmlhttp.open("GET","cd_catalog.xml",false);
+  xmlhttp.send();
+  
+  var xmlDoc=xmlhttp.responseXML; 
+  x=xmlDoc.getElementsByTagName("CD");
+  i=0;
+  function displayCD()
+  {
+    artist=(x[i].getElementsByTagName("ARTIST")[0].childNodes[0].nodeValue);
+    title=(x[i].getElementsByTagName("TITLE")[0].childNodes[0].nodeValue);
+    year=(x[i].getElementsByTagName("YEAR")[0].childNodes[0].nodeValue);
+    txt="Artist: " + artist + "<br />Title: " + title + "<br />Year: "+ year;
+    document.getElementById("showCD").innerHTML=txt;
+  }
+</script>
+</head>
+<body onload="displayCD()">
+
+<div id='showCD'></div>
+
+</body>
+</html>
+
+//-

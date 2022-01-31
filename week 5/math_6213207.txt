@@ -1,0 +1,12 @@
+class MyMath {
+  add = (inp1, inp2) => (inp1+inp2);
+  minus = (inp1, inp2) => (inp1-inp2);
+  multiply = (inp1, inp2) => (inp1*inp2);
+  devide = (inp1, inp2) => (inp1/inp2);
+};
+
+var result = new MyMath();
+console.log(result.add(2,3)); //5
+console.log(result.minus(2,3)); //-1
+console.log(result.multiply(2,3)); //6
+console.log(result.devide(2,0)); //Infinity

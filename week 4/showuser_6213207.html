@@ -1,0 +1,38 @@
+<html>
+
+<head>
+    <script type="text/javascript">
+        function showUser(userid) {
+            xmlhttp = new XMLHttpRequest();
+
+            xmlhttp.onreadystatechange = function () {
+                if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+                    document.getElementById("userinfo").innerHTML = xmlhttp.responseText;
+                }
+            }
+
+            xmlhttp.open("GET", "http://www.atilal.com/course/egci427/ajax/user/getuser.php?q=" + userid, true);
+            xmlhttp.send();
+        }
+    </script>
+</head>
+
+<body>
+   <form action="">
+    <select id="user" onchange="showUser(this.value)">
+      <option value="" selected disabled hidden>Select person</option>
+      <option value="1">Peter Griffin</option>
+      <option value="2">Lois Griffin</option>
+      <option value="3">Joseph Swanson</option>
+      <option value="4">Gleen Quagmire</option>
+    </select>
+    
+
+    </form>
+    <br>
+    <div id="userinfo"><b> Person info will be list here.</b></div>
+
+
+</body>
+
+</html>
