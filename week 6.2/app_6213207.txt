@@ -1,0 +1,28 @@
+//--------------- app.js---------------//
+var express = require('express')
+var fs = require('fs');
+var app = express()
+var jsonObj = []
+
+app.get('/showForm',function(req,res){
+    res.sendFile(__dirname+"/"+"showForm.html")
+})
+
+app.get('/showData',function(req,res){
+    data= {
+        fname: req.query.fname,
+        lname: req.query.lname,
+        result: parseInt(req.query.in1)+parseInt(req.query.in2)
+    }
+    jsonObj.push(data)
+
+    console.log(jsonObj)
+    
+    var output = JSON.stringify(jsonObj)
+
+    res.end(output)
+    fs.writeFileSync('./output.json', output,'utf8')
+
+})
+
+app.listen(8081)
