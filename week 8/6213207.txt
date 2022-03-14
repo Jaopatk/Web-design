@@ -1,0 +1,42 @@
+<!-- html -->
+<script src="https://unpkg.com/vue@next"></script> 
+<div id = "data" class="demo"> 
+<p >{{uppercase(message,1)}}</p>
+<p>{{uppercase(message,2)}}</p> 
+</div>
+
+//javascript
+const App = {
+    data() {
+        return {
+            message: 'hello world!'
+        }
+    },
+
+    methods: {
+        uppercase: function (value, num) {
+            if (!value) {
+                return ''
+            }
+
+            var splitStr = value.toLowerCase().split(' ');
+
+            for (var i = 0; i < splitStr.length; i++) {
+                splitStr[i] = splitStr[i].charAt(0).toUpperCase() + splitStr[i].slice(1);
+            }
+
+            if (num == 1) {
+                return splitStr.join(' ');
+            } else {
+                return splitStr.join('');
+            }
+
+        }
+    }
+}
+Vue.createApp(App).mount('#data')
+
+//output
+Hello World!
+
+HelloWorld!
